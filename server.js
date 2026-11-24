@@ -1,0 +1,28 @@
+import 'dotenv/config';
+import express from 'express';
+import connection from './config/connection.js';
+
+
+// 
+
+connection
+.then(()=> console.log('Connected to database successfully!'))
+.catch((e)=> console.log(e));
+
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+ 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+ 
+// if we're in production, serve client/build as static assets
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
+ 
+// app.use(routes);
+ 
+
+  app.listen(PORT, () =>{ 
+    console.log(`🌍 Now listening on localhost:${PORT}`)});
