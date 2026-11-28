@@ -1,10 +1,12 @@
+import 'dotenv/config';
 import mongoose from "mongoose";
 import express from 'express';
 import User from '../models/User.js'
-import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 const router = express.Router();
-
+const secret = process.env.JWT_SECRET;
+const expiration = '2h';
 router.post('/users/register', async(req, res)=>{
 
    try{

@@ -2,9 +2,6 @@ import 'dotenv/config';
 import express from 'express';
 import connection from './config/connection.js';
 import userRoutes from './routes/userRoutes.js';
-import router from './routes/userRoutes.js';
-import { Router } from 'express';
-
 
 
 connection
@@ -20,7 +17,7 @@ app.use(express.json());
  
 app.use('/api/',userRoutes)
  
-// app.use(routes);
+
  
 
   app.listen(PORT, () =>{ 

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { Schema } from "mongoose";
+import { Schema, model } from "mongoose";
 import User from "./User.js";
-import { Model } from "mongoose";
+
 
 const noteSchema = new Schema({
     title: {
@@ -21,7 +21,10 @@ const noteSchema = new Schema({
   type: Schema.Types.ObjectId,
   ref: 'User',
   required: true,
-}
+},
+
+  timestamps: true
+
 
 });
 
